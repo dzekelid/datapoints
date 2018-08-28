@@ -7,8 +7,8 @@ image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/l
 x-kinRank: "7"
 x-alexaRank: "264121"
 tags: Datapoints
-created: "2018-08-26"
-modified: "2018-08-26"
+created: "2018-08-27"
+modified: "2018-08-27"
 url: https://raw.githubusercontent.com/streamdata-gallery-topics/datapoints/master/_listings/predix/apis.md
 specificationVersion: "0.14"
 apis:
@@ -39,6 +39,40 @@ apis:
     url: https://raw.githubusercontent.com/streamdata-gallery-topics/datapoints/master/_listings/predix/v1datapoints-get-postman.md
   - type: x-openapi-spec
     url: https://raw.githubusercontent.com/streamdata-gallery-topics/datapoints/master/_listings/predix/v1datapoints-get-openapi.md
+- name: Data Services - Query Datapoints
+  x-api-slug: v1datapoints-post
+  description: "Both the GET and POST methods can be used to query time series data.
+    Use the query API with the GET HTTP method by passing the query JSON as a URL
+    query parameter. The advantage of using the GET method is that requests and responses
+    can be cached in proxy servers and browsers.  In cases where the query JSON is
+    very long and exceeds query parameter length (for some browsers), use POST as
+    a convenience method to query the time series API. POST requests have no restrictions
+    on data length, however, requests are never cached. The Time Series service API
+    is designed this way to support complex, nested time series queries on one or
+    more tags and their attributes, with start and end times, along with aggregations
+    and filters.  Following is a sample request message: Request JSON{\n\t\"start\":
+    \"24h-ago\",\n\t\"end\": \"12h-ago\",\n\t\"tags\": [{\n\t\t\"name\": \"ALT_SENSOR\",\n\t\t\"limit\":
+    1000,\n\t\t\"order\": \"desc\",\n\t\t\"suppressGroupByType\": true|false,\n\t\t\"aggregations\":
+    [{\n\t\t\t\"type\": \"avg\",\n\t\t\t\"interval\": \"1h\"\n\t\t}],\n\t\t\"filters\":
+    {\n\t\t\t\"attributes\": {\n\t\t\t\t\"host\": [\n\t\t\t\t\t\"test\"\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"measurements\":
+    {\n\t\t\t\t\"condition\": \"le\",\n\t\t\t\t\"values\": [\n\t\t\t\t\t\"36\"\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"qualities\":
+    {\n\t\t\t\t\"values\": [\n\t\t\t\t\t\"3\"\n\t\t\t\t]\n\t\t\t}\n\t\t},\n\t\t\"groups\":
+    [{\n\t\t\t\"name\": \"attribute\",\n\t\t\t\"attributes\": [\n\t\t\t\t\"host\",
+    \"subtenant\"\n\t\t\t]\n\t\t}]\n\t}]\n}\nResponse JSON (Status 200){\n\t\"tags\":
+    [{\n\t\t\"name\": \"ALT_SENSOR\",\n\t\t\"results\": [{\n\t\t\t\"filters\": {\n\t\t\t\t\"attributes\":
+    {\n\t\t\t\t\t\"host\": [\n\t\t\t\t\t\t\"test\"\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t\t\t\"measurements\":
+    {\n\t\t\t\t\t\"condition\": \"le\",\n\t\t\t\t\t\"values\": [\n\t\t\t\t\t\t36\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t\t\t\"qualities\":
+    {\n\t\t\t\t\t\"values\": [\n\t\t\t\t\t\t\"3\"\n\t\t\t\t\t]\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"attributes\":
+    {\n\t\t\t\t\"host\": [\"test\"]\n\t\t\t},\n\t\t\t\"values\": [\n\t\t\t\t[1449709894000,
+    5, 3],\n\t\t\t\t[1449709895000, 7, 3]\n\t\t\t]\n\t\t}],\n\t\t\"stats\": {\n\t\t\t\"rawCount\":
+    2\n\t\t}\n\t}]\n}"
+  image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/predix-vector-logo.png
+  humanURL: https://www.predix.io
+  baseURL: https://time-series-service-doc.grc-apps.svc.ice.ge.com//
+  tags: SaaS, Technology, Enterprise, Internet of Things, Relative Data, Service API
+  properties:
+  - type: x-openapi-spec
+    url: https://raw.githubusercontent.com/streamdata-gallery-topics/datapoints/master/_listings/predix/v1datapoints-post-openapi.md
 x-common:
 - type: x-api-gallery
   url: http://predicthq.api.gallery.streamdata.io

@@ -1,9 +1,10 @@
+---
 swagger: "2.0"
 x-collection-name: Click Meter
-x-complete: 1
+x-complete: 0
 info:
-  title: Click Meter
-  description: api-dashboard-for-clickmeter-api
+  title: Click Meter Count the datapoints associated to the user in this group.
+  description: Count the datapoints associated to the user in this group..
   contact:
     name: Api Support
     url: http://www.clickmeter.com/api
@@ -756,198 +757,17 @@ paths:
       - Id
       - Datapoints
       - Count
-  /retargeting/{id}/datapoints:
-    get:
-      summary: List of all the datapoints associated to the retargeting script.
-      description: List of all the datapoints associated to the retargeting script..
-      operationId: getRetargetingDatapoints
-      x-api-path-slug: retargetingiddatapoints-get
-      parameters:
-      - in: query
-        name: createdAfter
-        description: Exclude datapoints created before this date (YYYYMMDD)
-      - in: query
-        name: createdBefore
-        description: Exclude datapoints created after this date (YYYYMMDD)
-      - in: path
-        name: id
-        description: Id of the retargeting script
-      - in: query
-        name: limit
-        description: Maximum elements to retrieve
-      - in: query
-        name: offset
-        description: Where to start when retrieving elements
-      - in: query
-        name: onlyFavorites
-        description: Filter fields by favourite status
-      - in: query
-        name: sortBy
-        description: Field to sort by
-      - in: query
-        name: sortDirection
-        description: Direction of sort asc or desc
-      - in: query
-        name: status
-        description: Status of the datapoint
-      - in: query
-        name: tags
-        description: A comma separated list of tags you want to filter with
-      - in: query
-        name: textSearch
-        description: Filter fields by this pattern
-      responses:
-        200:
-          description: OK
-      tags:
-      - Retargeting
-      - Id
-      - Datapoints
-  /retargeting/{id}/datapoints/count:
-    get:
-      summary: Count the datapoints associated to the retargeting script.
-      description: Count the datapoints associated to the retargeting script..
-      operationId: getRetargetingDatapointsCount
-      x-api-path-slug: retargetingiddatapointscount-get
-      parameters:
-      - in: query
-        name: createdAfter
-        description: Exclude datapoints created before this date (YYYYMMDD)
-      - in: query
-        name: createdBefore
-        description: Exclude datapoints created after this date (YYYYMMDD)
-      - in: path
-        name: id
-        description: Id of the group
-      - in: query
-        name: onlyFavorites
-        description: Filter fields by favourite status
-      - in: query
-        name: status
-        description: Status of the datapoint
-      - in: query
-        name: tags
-        description: A comma separated list of tags you want to filter with
-      - in: query
-        name: textSearch
-        description: Filter fields by this pattern
-      responses:
-        200:
-          description: OK
-      tags:
-      - Retargeting
-      - Id
-      - Datapoints
-      - Count
-  /tags/{tagId}/datapoints:
-    delete:
-      summary: Delete the association of this tag with all datapoints
-      description: Delete the association of this tag with all datapoints.
-      operationId: deleteTagsTagDatapoints
-      x-api-path-slug: tagstagiddatapoints-delete
-      parameters:
-      - in: path
-        name: tagId
-        description: Id of the tag
-      responses:
-        200:
-          description: OK
-      tags:
-      - Tags
-      - TagId
-      - Datapoints
-    get:
-      summary: List of all the datapoints associated to the user filtered by this
-        tag
-      description: List of all the datapoints associated to the user filtered by this
-        tag.
-      operationId: getTagsTagDatapoints
-      x-api-path-slug: tagstagiddatapoints-get
-      parameters:
-      - in: query
-        name: createdAfter
-        description: Exclude datapoints created before this date (YYYYMMDD)
-      - in: query
-        name: createdBefore
-        description: Exclude datapoints created after this date (YYYYMMDD)
-      - in: query
-        name: limit
-        description: Maximum elements to retrieve
-      - in: query
-        name: offset
-        description: Where to start when retrieving elements
-      - in: query
-        name: status
-        description: Status of the datapoint
-      - in: path
-        name: tagId
-        description: Id of the tag
-      - in: query
-        name: textSearch
-        description: Filter fields by this pattern
-      - in: query
-        name: type
-        description: Type of the datapoint (tp/tl)
-      responses:
-        200:
-          description: OK
-      tags:
-      - Tags
-      - TagId
-      - Datapoints
-  /tags/{tagId}/datapoints/count:
-    get:
-      summary: Count the datapoints associated to the user filtered by this tag
-      description: Count the datapoints associated to the user filtered by this tag.
-      operationId: getTagsTagDatapointsCount
-      x-api-path-slug: tagstagiddatapointscount-get
-      parameters:
-      - in: query
-        name: createdAfter
-        description: Exclude datapoints created before this date (YYYYMMDD)
-      - in: query
-        name: createdBefore
-        description: Exclude datapoints created after this date (YYYYMMDD)
-      - in: query
-        name: status
-        description: Status of the datapoint
-      - in: path
-        name: tagId
-        description: Id of the tag
-      - in: query
-        name: textSearch
-        description: Filter fields by this pattern
-      - in: query
-        name: type
-        description: Type of the datapoint (tp/tl)
-      responses:
-        200:
-          description: OK
-      tags:
-      - Tags
-      - TagId
-      - Datapoints
-      - Count
-  /tags/{tagId}/datapoints/patch:
-    put:
-      summary: Associate/Deassociate a tag with a datapoint
-      description: Associate/deassociate a tag with a datapoint.
-      operationId: putTagsTagDatapointsPatch
-      x-api-path-slug: tagstagiddatapointspatch-put
-      parameters:
-      - in: body
-        name: data
-        description: The body patch
-        schema:
-          $ref: '#/definitions/holder'
-      - in: path
-        name: tagId
-        description: Id of the tag
-      responses:
-        200:
-          description: OK
-      tags:
-      - Tags
-      - TagId
-      - Datapoints
-      - Patch
+x-streamrank:
+  polling_total_time_average: 0
+  polling_size_download_average: 0
+  streaming_total_time_average: 0
+  streaming_size_download_average: 0
+  change_yes: 0
+  change_no: 0
+  time_percentage: 0
+  size_percentage: 0
+  change_percentage: 0
+  last_run: ""
+  days_run: 0
+  minute_run: 0
+---
